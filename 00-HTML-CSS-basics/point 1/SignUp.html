@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+		<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, width=device-width" />
+		<meta charset="UTF-8">
+		<meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
+		<meta name="Rodrigo Reuil" content="Hege Refsnes">
+        <title>Sign Up Form</title>
+    </head>
+    <body>
+		<style>
+			.column1{padding-right:10px;}
+			.column2{padding-left:10px;}
+		</style>
+		<form action="SignUp.html" method="post">
+	
+			<h1>Sign Up</h1>
+			<table>
+				<tr>
+					<td class='column1'><b>First Name:</b></td>
+					<td>:</td>
+					<td class='column2'> <input type="text" id="firstName" name="user_firstName"> </td>
+				</tr>
+				<tr>
+					<td class='column1'><b>Last Name:</b></td>
+					<td>:</td>
+					<td class='column2'> <input type="text" id="lastName" name="user_lastName"> </td>
+				</tr>
+				<tr>
+					<td class='column1'><b>Email:</b></td>
+					<td>:</td>
+					<td class='column2'> <input type="email" id="mail" name="user_email"> </td>
+				</tr>
+				<tr>
+					<td class='column1'><b>Birthday:</b></td>
+					<td>:</td>
+					<td class='column2'> <input type="datetime" id="birthday" name="user_birthday"> </td>
+				</tr>
+				<tr> <td class='column1'><b>Your Favourite Sport:</b></td>
+					<td>:</td>
+					<td class='column2'>
+						<select id="sports">
+						  <optgroup label="Racket">
+							<option value="Paddle">Paddle</option>
+							<option value="Tenis">Tenis</option>
+							<option value="Ping_Pong">Ping Pong</option>
+						  </optgroup>
+						  <optgroup label="Water">
+							<option value="Waterpolo">Waterpolo</option>
+							<option value="Swimming">Swimming</option>
+						  </optgroup>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class='column1'><b>Biography:</b></td>
+					<td>:</td>
+					<td class='column2'> <textarea id="bio" name="user_bio"></textarea> </td>
+				</tr>
+			</table>
+			<button type="submit">Sign Up</button>
+			<button type="reset" value="Reset">Reset</button>
+      </form>
+    </body>
+</html>
