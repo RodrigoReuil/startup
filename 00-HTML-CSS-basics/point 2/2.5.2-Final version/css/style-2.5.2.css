@@ -1,0 +1,239 @@
+/* =============================================================================
+   WEBSITE - TYPOGRAPHY
+   ========================================================================== */
+
+/* quita el subrrayado de los href */
+a, a:visited, a:active, a:hover {
+	text-decoration:none;
+}
+
+p, ul, li, a, h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    letter-spacing: -0.025em;
+    line-height: 1.375rem;
+    margin: 0 0 0 0;
+    max-width:40rem;
+    font-weight:normal;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	padding-bottom:1.25em;
+}
+
+/* Ubicación del texto dentro del cuadro transparente */
+p, h1, h2, h3, h4, h5, h6, li, a, #site-outer-container aside.grid-cell > a {
+	margin:0em 1.25rem 0em;
+}
+/* separacion entre los href y P */
+p > a {
+	margin:0em;
+}
+
+
+/* =============================================================================
+   MAIN WRAPPERS
+   ========================================================================== */
+#site-outer-container {
+	display:block;
+	position:relative;
+	padding:0;
+	overflow:hidden;
+	max-width:85.875em;
+	margin:0 auto;
+	border-left:1px solid rgba(0,0,0,0.1);
+	border-right:1px solid rgba(0,0,0,0.1);
+}
+
+/* =============================================================================
+   GRID CONTAINER CLASSES
+   ========================================================================== */
+/* propiedades de los cuadros*/
+.grid-cell {
+	position:relative;
+	width:33.33332%;
+	min-height:1em;
+	overflow:hidden;
+}
+/* ubicacion del texto en la cabeceraclear */
+.grid-cell-double-span {
+	position:relative;
+	width:66.66667%;
+	min-height:1em;
+	overflow:hidden;
+}
+/* Separación entre cuadros */
+.inner-padding {
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding:0.75em;
+}
+
+.float-left {
+	float:left;
+}
+
+.float-right {
+	float:right;
+}
+
+/* =============================================================================
+   MASONARY 
+   ========================================================================== */
+/* ubicacion de los cuadros en la pagina */
+#masonry-wrap {
+	position:relative;
+	clear:both;
+	width:100%;
+	display:block;
+}
+
+figure {
+	line-height:0em;
+	overflow:hidden;
+	background-color:#eee;
+}
+/* Separación entre cuadros */
+#site-outer-container .grid-cell > a, .img-wrapper, figure {
+	display:block;
+	position:relative;
+	font-size:1em;
+	margin:0;
+}
+
+img {
+	max-width:100%;
+	position:relative;
+	clear:both;
+}
+#js img {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+
+.article-link > a {
+	padding:0rem;
+}
+
+/* ubicación del cuadro transparente */
+.hover-text {
+	width:100%;
+	height:auto;
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:block;
+}
+/* Para que no aparezca por el cuadro de texto al cargar la pagina */
+#js .hover-text {
+	display:none
+}
+/* TRANSPARENCIA */
+.hover-text-inner {
+	padding:0.75em 0 0.625em;
+	overflow:visible;
+	position:relative;
+	background-color:rgba(255, 255, 255, 0.9);
+}
+/* ubicación de texto */
+.hover-text h3 {
+	margin:0em;
+	padding:0em;
+}
+
+/* =============================================================================
+   COLUMNS 
+   ========================================================================== */
+
+.column {
+	position:absolute;
+	width:1px;
+	background-color:rgba(0, 0, 0, 0.075);
+	height:100%;
+	top:0px;
+}
+
+.column-01 {
+	left:16.66667%;
+}
+.column-02 {
+	left:33.33334%;
+}
+.column-03 {
+	left:50%;
+}
+.column-04 {
+	left:66.66667%;
+}
+.column-05 {
+	left:83.33334%;
+}
+/* =============================================================================
+   ODDS & ENDS
+   ========================================================================== */
+   
+#js #site-overlay {
+	position:fixed;
+	height:100%;
+	width:100%;
+	top:0px;
+	left:0px;
+	background-color:#fff;
+	z-index:2000;
+}
+
+#js figure .grey-image {
+	display:none;
+
+}
+
+#detect-mobile {
+	display:none;
+	height:1px;
+	width:1px;
+	margin:0px;
+	padding:0px;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+/* efecto de transparencia */
+.do-greyscale .image-effect {
+	filter: gray;
+	-webkit-filter: grayscale(100%);
+	-moz-transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.no-touch .do-greyscale:hover .image-effect {
+	filter: none;
+	-webkit-filter: grayscale(0%);
+}
+
+/* =============================================================================
+   Non-semantic helper classes
+   Please define your styles before this section.
+   ========================================================================== */
+
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+.hidden { display: none; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+.clear {
+	height:1px;
+	width:100%;
+	position:relative;
+	display:block;
+	clear:both;
+}

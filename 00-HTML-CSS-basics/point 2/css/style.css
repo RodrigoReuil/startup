@@ -1,0 +1,55 @@
+html *
+{
+   font-size: 14px;
+   font-family: verdana;
+}
+
+#pageHeader {
+   background: #999;
+   text-align: center;
+}
+
+#pageAside {
+   background: #64D28B;
+}
+
+#pageFooter {
+   background: #4EA9B5;
+   text-align: center;
+}
+
+/* point 2.3-2/3 */
+.header {
+	font-size: 46px;
+}
+
+.footer {
+	font-size: 10px;
+}
+
+.content {
+	font-size: 14px;
+}
+
+.navigation {
+	background: blue !important;		/* point 2.3-5 */
+	font-size: 12px;
+}
+
+.sidebar {
+	font-size: 10px;
+}
+
+.endWithR {
+	background: #FF00FF !important;		/* point 2.3-4 */
+}
+
+/*
+2.3-6: A travez de "!important" tiene prioridad sobre una declaración normal
+*/
+/*
+2.3-7:
+oh-no-inline-styles {
+	background:green !important;
+}
+*/

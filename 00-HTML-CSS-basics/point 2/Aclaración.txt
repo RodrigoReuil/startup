@@ -1,0 +1,7 @@
+El archivo “index-2.5.2-old.html” fue el primero que hice rápidamente, viendo que no iba a quedar igual.
+Elegí hacer la carpeta “2.5.2-Final version” tomando el código de la página así eran igual  al ejemplo pedido.
+Y lo que hice fue dejar solo el html minimo requerido para el ejemplo y sus CSS en los cuales fui comentado que es lo que hacía cada clase.
+
+Con lo que hablamos el otro día, cuando pueda mejoro el “index-2.5.2-old.html”
+
+Saludos
