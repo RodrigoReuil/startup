@@ -1,0 +1,63 @@
+html *
+{
+	text-align: center;
+	font-family: verdana;
+}
+
+.hidden {
+	display: none; /* elimina el elemento completo del documento, no ocupa ningún espacio.*/
+	/* visibility: hidden		oculta el elemento, pero todavía ocupa espacio en el diseño.*/
+}
+
+.alias{
+	width: 90%;
+	height: 30%;
+}
+
+.column1{padding-right:10px;}
+.column2{padding-left:10px;}
+
+/*** Page ***/
+#pageContainer {
+	margin: 0px auto 0px auto; /* centro todo */
+	width: 1024px;
+}
+
+#pageHeader {
+	height:100px;
+	position:relative;
+	background: #64D28B;
+	font-size: 46px;
+}
+
+#contentContainer {
+	padding-top: 10px;
+}
+
+/*******CONTAINER************/
+#pageNav{
+	float:left;
+	background: #EDF395;
+	width: 40%;
+	height: 400px;
+	margin-bottom:1%;
+}
+
+#pageSection {
+	float:left;
+	background: #95F3E7;
+	width: 59%;
+	margin-left:1%;		/* separacion */
+
+}
+
+/******END CONTAINER*********/
+
+#pageFooter {
+	clear: left;
+	background: #4EA9B5;
+	height: 70px;
+	bottom: 0px;
+	width: 1024px;
+	font-size: 46px;
+}
