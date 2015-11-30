@@ -1,14 +1,14 @@
 $(document).ready( function() {
 	/* point 1.5 ; 1.6 */
-	$("#myDivHidden").delay(1500).hide(700, function(){
-		$("#myTextarea").focus();
+	$("#my-div-hidden").fadeOut(1700).hide(700, function(){
+		$("#my-textarea").focus();
 	});
 	/* point 1.6 */
-	$("#myTextarea").addClass("alias");
+	$("#my-textarea").addClass("alias");
 });
 
 function clearTexarea() {
-	document.getElementById("myTextarea").value = "";
+	document.getElementById("my-textarea").value = "";
 }
 
 /* point 1.7 */
@@ -23,27 +23,31 @@ function httpGet() {
 		success: function (msg) {
 			$.each(msg, function(i, field){
 				// point 1.10
-				$("#myTextarea").val((field).replace("yourname", "RODRIGO"));
+				$("#my-textarea").val((field).replace("yourname", "RODRIGO"));
 			});
 		},
 		error: function (jqxhr, textStatus, error) {
 			console.log("jqxhr: "+jqxhr+ "\ntextStatus: " + textStatus + "\nerror: " + error);
 			// point 1.9
-			$("#myTextarea").css('color', 'red');
-			document.getElementById("myTextarea").value = "Error en la URL. " + error;
+			$("#my-textarea").css('color', 'red');
+			document.getElementById("my-textarea").value = "Error en la URL. " + error;
 		}
 	});
 }
 
 /* point 1.11 */
 function httpGetAlbums() {
-	//este me lo paso un compañero, se vaso con este link (xq esta mas reducido)
-	//https://api.spotify.com/v1/search?q=Rolling%20Stones&type=album&market=US
-	
-	//este seria el q iria del apartado, pero si el de arriba lo paso este chico y no dijo nada raro, juega el de arriba
 	//https://api.spotify.com/v1/search?q=Rolling%20Stones&type=album
 	$.getJSON("https://api.spotify.com/v1/search?q=Rolling%20Stones&type=album").done(function(data){
 		console.log(data);
+		
+		var AlbunImg, AlbunName, AlbunType ,AlbunSpoti, AlbunDate;
+		var createTable = '<table id="list_albun" align="center">';
+			createTable += '<tr>';
+			createTable += '<th>Image Albun</th><th>Albun Name</th><th>Type</th><th>Link Of Spotifi</th><th>Release Date</th>';
+			createTable += '</tr>';
+			tr = '';
+
 		$.each(data, function (linktext, link) {
 			console.log("busco ARRAY 1: "+ linktext);
 			console.log(link);
@@ -57,71 +61,61 @@ function httpGetAlbums() {
 							console.log("recorro los ARRAY de items: "+ linktext3);
 							console.log(link3);
 							console.log("++++++++++++++++++++++++++++++++++++++++++");
+							
 							$.each(link3, function(linktext4, link4){
 								console.log("busco ARRAY 4 (external_urls) y (images): "+ linktext4);
 								console.log(link4);
 								console.log("/////////////////");
-								if( linktext4 == "external_urls" ) {
-									$.each(link4, function(linktext5, link5){
-										console.log("Guardar dato del spotifi: ultimo external_urls: "+ linktext5);
-										console.log(link5);
-										$("#myDivSpotify").append(link5+"<br>");	//spotify
-										console.log("-.-.-.-.-.-.");
-									});
-								}
 								if( linktext4 == "images" ) {
 									$.each(link4, function(linktext5, link5){
 										console.log("ultimo img: "+ linktext5);
 										console.log(link5);
 										if(linktext5 == "2"){
 											console.log("Guardar la ref a la img: ultima img: (elijo la de tamaño mas chico) "+link5);
-											$("#myDivImages").append("<img src='"+link5.url+"'/><br>");	//spotify											
+											//$("#myDivImages").append("<img src='"+link5.url+"'/><br>");
+											AlbunImg = link5.url;
 										}
 										console.log("-.-.-.-.-.-.");
 									});
 								}
+								if( linktext4 == "href" ) {
+										console.log("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO "+link4);
+										$.getJSON(link4).done(function(dataExt){
+											console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa "+dataExt.release_date);
+											AlbunDate = dataExt.release_date;
+										}).error(function( jqxhr, textStatus, error ) {
+											console.log("jqxhr: "+jqxhr+ "\ntextStatus: " + textStatus + "\nerror: " + error);
+										});
+								}
+								if( linktext4 == "external_urls" ) {
+									//$("#myDivSpotify").append(link5+"<br>");	//spotify
+									AlbunSpoti = link4.spotify;
+								}
 								if( linktext4 == "name" ) {
-									$("#myDivAlbunName").append(link4+"<br>");	//spotify
+									//$("#myDivAlbunName").append(link4+"<br>");	//spotify
+									AlbunName = link4;
 								}
-								if( linktext4 == "type" ) {
-									$("#myDivType").append(link4+"<br>");	//spotify
+								if( linktext4 == "album_type" ) {
+									//$("#myDivType").append(link4+"<br>");	//spotify
+									AlbunType = link4;
 								}
+								
+							
 							});
+							// armo la tabla
+							tr += '<tr>';
+							tr += '<td><img src="' +AlbunImg+'"/></td><td>'+ AlbunName +'</td><td>'+ AlbunType +'</td><td>'+ AlbunSpoti +'</td><td>'+ AlbunDate +'</td>';
+							tr += '</tr>';
+
 						});
 					}
 				});
+				// cierro la tabla
+                createTable += tr;
+                createTable += '</table>';
+                $('#my-table-show-info').html( createTable );
 		});
 	}).error(function( jqxhr, textStatus, error ) {
 		console.log("jqxhr: "+jqxhr+ "\ntextStatus: " + textStatus + "\nerror: " + error);
 	});
 }
-
-
-	/*
-//	distintas pruebas
-	$.ajax({
-		type: "POST",
-		url: "http://bootcamp.aws.af.cm/welcome/yourname",
-		dataType: "json",
-		contentType: "application/json; charset=utf-8",
-		success: function (msg) {
-			//var json = $.parseJSON(msg);
-			$.each(json, function(i, field){
-				$("#myDivAlbun").append(field);
-			});
-			//$("#myDivAlbun").append(json);
-
-		},
-		error: function (jqxhr, textStatus, error) {
-			//console.log("jqxhr: "+jqxhr+ "\ntextStatus: " + textStatus + "\nerror: " + error);
-			$("#myDivAlbun").css('color', 'red');
-			$("#myDivAlbun").append(error);
-			//document.getElementById("#myDivAlbun").value = "Error en la URL. " + error;
-		}
-	});*/
-	/*$.getJSON("https://api.spotify.com/v1/search?q=Rolling%20Stones&type=album&market=US", function(data){
-		$.each(data, function (linktext, link) {
-			console.log(linktext);
-			console.log(link);
-		});
-	});*/
