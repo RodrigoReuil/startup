@@ -4,9 +4,14 @@ html *
 	font-family: verdana;
 }
 
+table, th, td {
+	border: 1px solid black;
+	vertical-align:middle;
+	padding: 10px;
+}
+
 .hidden {
-	display: none; /* elimina el elemento completo del documento, no ocupa ningún espacio.*/
-	/* visibility: hidden		oculta el elemento, pero todavía ocupa espacio en el diseño.*/
+	display: none;
 }
 
 .alias{
@@ -15,26 +20,11 @@ html *
 }
 
 .display{
-	margin: auto;
-	margin-left: auto;
-    margin-right: auto;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-th, td {
-	padding: 10px;
-	vertical-align:middle;
+	margin: 0 auto;
+	width:100%;
 }
 
 /*** Page ***/
-#pageContainer {
-	/*margin: 0px auto 0px auto; centro todo 
-	width: 1024px;*/
-}
-
 #pageHeader {
 	height:100px;
 	position:relative;
@@ -60,9 +50,7 @@ th, td {
 	background: #95F3E7;
 	width: 84%;
 	margin-left:1%;		/* separacion */
-
 }
-
 /******END CONTAINER*********/
 
 #pageFooter {
