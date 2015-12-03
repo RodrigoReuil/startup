@@ -1,0 +1,42 @@
+html *
+{
+	text-align: center;
+	font-family: verdana;
+}
+
+/*** Page ***/
+#pageHeader {
+	height:100px;
+	position:relative;
+	background: #64D28B;
+	font-size: 46px;
+}
+
+#contentContainer {
+	padding-top: 10px;
+}
+
+/*******CONTAINER************/
+#pageNav{
+	float:left;
+	background: #EDF395;
+	width: 15%;
+	height: 400px;
+	margin-bottom:1%;
+}
+
+#pageSection {
+	float:left;
+	background: #95F3E7;
+	width: 84%;
+	margin-left:1%;		/* separacion */
+}
+/******END CONTAINER*********/
+
+#pageFooter {
+	clear: left;
+	background: #4EA9B5;
+	height: 70px;
+	bottom: 0px;
+	font-size: 46px;
+}
