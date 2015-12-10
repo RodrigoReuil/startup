@@ -1,0 +1,13 @@
+html *
+{
+	text-align: center;
+	font-family: verdana;
+}
+
+/*** Page ***/
+#pageHeader {
+	height:100px;
+	position:relative;
+	background: #64D28B;
+	font-size: 46px;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "app-nodejs",
+  "title": "Topic 3 - NodeJS, NPM, and JavaScript Modules",
+  "description": "Point 1",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RodrigoReuil/startup/tree/master/03-Node-npm-modules"
+  },
+  "license": {
+    "type": "ISC",
+    "url": "http://opensource.org/licenses/ISC"
+  },
+  "author": "Reuil, Rodrigo Matias",
+  "email": "rodrigoreuil@gmail.com",
+  "url": "https://github.com/RodrigoReuil",
+  "devDependencies": {
+    "browserify": "^12.0.1"
+  }
+}
