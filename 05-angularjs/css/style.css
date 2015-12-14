@@ -1,0 +1,56 @@
+#pageContainer {
+	margin: 0px auto 0px auto; /* centro todo */
+	width: 1024px;
+}
+
+#pageHeader {
+	height:100px;
+	position:relative;
+	background: #64D28B;
+}
+
+#contentContainer {
+	padding-top: 10px;
+}
+
+/*******CONTAINER************/
+#pageNav{
+	float:left;
+	background: orange;
+	width: 50%;
+	height: 400px;
+	margin-bottom:1%;
+}
+
+#pageSection {
+	float:left;
+	background: #4EA9B5;
+	width: 49%;
+	margin-left:1%;		/* separacion */
+	/*margin-bottom:1%;*/
+	height: 400px;
+}
+
+#pageAside {
+	float:right;
+	background: green;
+	width: 20%;
+	margin-left:1%;
+	margin-bottom:1%;
+	height: 400px;
+}
+/******END CONTAINER*********/
+
+#pageFooter {
+	/*position: fixed; para dejarlo fijo abajo */
+	clear: left;	/* haho q valla debajo de los flotantes */
+	background: blue;
+	height: 70px;
+	bottom: 0px;
+	width: 1024px;
+}
+
+.textAling {
+	text-align: center;
+	font-size: 46px;
+}

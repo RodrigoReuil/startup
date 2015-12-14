@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">	<!-- This enables use of media queries for cross-device layouts -->
+
+		<!--<link rel="stylesheet" href="css/reset.css">-->
+        <link rel="stylesheet" href="css/normalize.css">	 <!-- which will render elements more consistently cross-browser. -->
+		<link rel="stylesheet" href="css/style.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<!--<script src="js/angular.min.js"></script>-->
+		<!--<script src="js/my-app-angular.js"></script>-->
+		<script>
+            angular.module('movieApp', []).controller('movieAppController',['$scope',function($scope){
+				//creo la lista q persistira los datos en el navegador
+				$scope.myMovies = JSON.parse(localStorage.getItem('myMovies')) || [];
+				$scope.$watch('myMovies', function(newValue, oldValue){
+					if(newValue!=oldValue){
+						localStorage.setItem('myMovies',JSON.stringify(newValue));
+					}
+				}, true);
+
+                $scope.load = function() {
+					$scope.myMovies = [{name:'Iron Man',desc:'the best character of marvel'},
+									{name:'The Avengers',desc:'Epic movie!'},
+									{name:'Wolverine Origins',desc:'The best mutant'},
+									{name:'Terminator Genesis',desc:'I want to be t800'},
+									{name:'Saw',desc:'I need moore blood'},
+									{name:'300',desc:'This is sparta'},
+									{name:'The Matrix',desc:'I love it'}];
+                }
+
+				$scope.addMovie = function() {
+					$scope.myMovies.push({ "name": $scope.enteredName, "desc": $scope.enteredDesc });
+					$scope.enteredName = '';	//borro contenidos
+					$scope.enteredDesc = '';
+				}
+
+				$scope.removeMovie = function(movie) {
+					//lugar del array
+					var i = $scope.myMovies.indexOf(movie);
+					$scope.myMovies.splice(i, 1);
+				}
+				
+				$scope.printInfo = function(movie) {
+					//var y = $scope.myMovies.indexOf(movie);
+					//console.log("ver y: "+y)
+
+					//document.getElementById("movieText").value = movie.name;
+					//document.getElementById("descText").value = movie.desc;
+					$scope.txtName = movie.name;
+					$scope.txtDesc = movie.desc;
+				};
+
+				$scope.editMovie = function(theMovie) {
+					var y = $scope.myMovies.indexOf(theMovie);
+					console.log("ver index del array: "+y)
+					console.log("ver theMovie.txtName: "+theMovie.name)
+					console.log("ver theMovie.txtDesc: "+theMovie.desc)
+					//editar $scope.myMovies.splice(y, 1);
+					//$scope.myMovies.splice(y, 0, theMovie.txtName);
+					//$scope.myMovies.splice(y, 0, theMovie.txtDesc);
+
+					//reemplazar $scope.myMovies.push({ "name": $scope.txtName, "desc": $scope.txtDesc });
+					$scope.txtName = '';	//borro contenidos
+					$scope.txtDesc = '';
+				};
+
+            }]);
+        </script>
+	</head>
+
+    <body ng-app="movieApp">
+		<div id="pageContainer" ng-controller="movieAppController">
+
+			<header id="pageHeader" class="textAling">
+				<span>Using Angular</span>
+			</header>
+
+			<div id="contentContainer">
+				<nav id="pageNav">
+
+						<button ng-click="load()">Load List</button>
+						<p>Movie:<br><input ng-model="enteredName" type="text" placeholder="Enter movie here" />To insert: " {{enteredName}} "</p>
+						<p>Description:<br><input ng-model="enteredDesc"  type="text" placeholder="Enter description here" />To insert: " {{enteredDesc}} "</p>
+						<button ng-click="addMovie()">Add Movie</button>
+						<ul>
+							<li ng-repeat="movie in myMovies track by $index">
+								<a href="" ng-click="removeMovie(movie)">REMOVE:</a>  {{movie.name}}   -   <a href="" ng-click="printInfo(movie)">{{movie.desc}}</a>
+							</li>
+						</ul>
+
+				</nav>
+
+				<section id="pageSection">
+					<div ng-repeat="theMovie in myMovies track by $index">
+					<p>Movie:<br><input ng-model="txtName" id="movieText" type="text" placeholder="click the description of the movie" /></p>
+					<p>Description:<br><input ng-model="txtDesc" id="descText"  type="text" placeholder="click the description of the movie" /></p>
+					<button ng-click="editMovie(theMovie)">Edit Movie</button>
+					</div>
+				</section>
+
+		</div>
+		
+    </body>
+
+</html>
