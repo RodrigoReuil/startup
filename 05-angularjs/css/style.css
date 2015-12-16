@@ -1,6 +1,7 @@
 #pageContainer {
 	margin: 0px auto 0px auto; /* centro todo */
 	width: 1024px;
+	padding-top: 10px;
 }
 
 #pageHeader {
@@ -18,39 +19,31 @@
 	float:left;
 	background: orange;
 	width: 50%;
-	height: 400px;
+	height: 100%;
 	margin-bottom:1%;
+
 }
 
 #pageSection {
 	float:left;
 	background: #4EA9B5;
-	width: 49%;
+	width: 43%;
 	margin-left:1%;		/* separacion */
-	/*margin-bottom:1%;*/
-	height: 400px;
+	height: 100%;
+	padding-bottom: 20px
 }
 
-#pageAside {
-	float:right;
-	background: green;
-	width: 20%;
-	margin-left:1%;
-	margin-bottom:1%;
-	height: 400px;
-}
 /******END CONTAINER*********/
-
-#pageFooter {
-	/*position: fixed; para dejarlo fijo abajo */
-	clear: left;	/* haho q valla debajo de los flotantes */
-	background: blue;
-	height: 70px;
-	bottom: 0px;
-	width: 1024px;
-}
 
 .textAling {
 	text-align: center;
 	font-size: 46px;
+}
+
+.textBox {
+	width: 100%;
+}
+
+.textPlace {
+	padding: 15px 15px 0px 15px;
 }
