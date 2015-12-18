@@ -1,0 +1,52 @@
+#pageContainer {
+	margin: 0px auto 0px auto; /* centro todo */
+	width: 1024px;
+	padding-top: 10px;
+}
+
+#pageHeader {
+	height:100px;
+	position:relative;
+	background: #4EA9B5;
+	font-size: 46px;
+}
+
+/*******CONTAINER************/
+#pageNav{
+	float:left;
+	background: orange;
+	width: 22%;
+	height: 100%;
+	padding-bottom: 20px
+}
+
+#pageSection {
+	float:left;
+	background:  #64D28B;
+	width: 30%;
+	margin-left:1%;		/* separacion */
+	height: 100%;
+	padding-bottom: 20px
+}
+
+#pageAside {
+	float:left;
+	background: #ccc;
+	width: 37%;
+	margin-left:1%;
+	padding-bottom: 20px
+}
+
+/******END CONTAINER*********/
+
+.textAling {
+	text-align: center;
+}
+
+.textPlace {
+	padding: 15px 15px 0px 15px;
+}
+
+.column2{
+	padding-left:10px;
+}

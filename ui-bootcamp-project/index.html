@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">	<!-- This enables use of media queries for cross-device layouts -->
+
+        <link rel="stylesheet" href="css/normalize.css">	 <!-- which will render elements more consistently cross-browser. -->
+		<link rel="stylesheet" href="css/style.css">
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+		<script src="js/angular.min.js"></script>
+		<script src="js/my-app-angular.js"></script>
+	</head>
+
+    <body ng-app="WoWApp">
+		<div id="pageContainer">
+
+			<header id="pageHeader" class="textAling">
+				<span>World of Warcraft Web Application</span>
+			</header>
+
+			<nav id="pageNav" class="textPlace" ng-controller="RealmlCtrl">
+				<b>Realm's Status</b>
+				<p></p>
+				<table>
+					<tr>
+						<th>Realms</th>
+						<th>Status</th>
+					</tr>
+					<tr ng-repeat="theRealm in realms">
+						<td>{{theRealm.name}}</td>
+						<td class='column2'>{{realmsStatus(theRealm.status)}}</td>
+					</tr>
+				</table>
+			</nav>
+
+			<section id="pageSection" class="textPlace" ng-controller="PlayerCtrl">
+				<b>Basic Information of Player</b>
+				<p>Realm Name: <input ng-model="playerRealmName" type="text"/></p>
+				<p>Player Name: <input ng-model="playerName" type="text"/></p>
+				<button ng-click="getPlayer()">Show Info</button>
+				<p></p>
+				<!--<img src="... FALTA URL ... {{ player.thumbnail }}"/>-->
+				<table>
+					<tr>
+						<td>Name:</td>
+						<td class='column2'>{{ player.name }}</td>
+					</tr>
+					<tr>
+						<td>Realm:</td>
+						<td class='column2'>{{ player.realm }}</td>
+					</tr>
+					<tr>
+						<td>Class:</td>
+						<td class='column2'>{{ playerClass(player.class) }}</td>
+					</tr>
+					<tr>
+						<td>Race:</td>
+						<td class='column2'>{{ playerRace(player.race) }}</td>
+					</tr>
+					<tr>
+						<td>Gender:</td>
+						<td class='column2'>{{ playerGender(player.gender) }}</td>
+					</tr>
+					<tr>
+						<td>Level:</td>
+						<td class='column2'>{{ player.level }}</td>
+					</tr>
+					<tr>
+						<td>Archivement Points:</td>
+						<td class='column2'>{{ player.achievementPoints }}</td>
+					</tr>
+				</table>
+			</section>
+
+			<aside id="pageAside" class="textPlace" ng-controller="GuildCtrl">
+				<b>Basic Information of Guild</b>
+				<p>Realm Name: <input ng-model="guildRealmName" type="text"/></p>
+				<p>Guild Name : <input ng-model="guildName" type="text"/></p>
+				<button ng-click="getGuild()">Show Info</button>
+				<p>Guild Level:{{ guilds.level }}</p>
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Class</th>
+						<th>Race </th>
+						<th>Image</th>
+					</tr>
+					<tr ng-repeat="guild in guilds.members">
+						<td class='column2'>{{ guild.character.name }}</td>
+						<td class='column2'>{{ guildClass(guild.character.class) }}</td>
+						<td class='column2'>{{ guildRace(guild.character.race) }}</td>
+						<td class='column2'><!--<img src="... FALTA URL ... {{ guild.character.thumbnail }}"/>--></td>
+					</tr>
+				</table>
+			</aside>
+
+		</div>
+    </body>
+</html>
