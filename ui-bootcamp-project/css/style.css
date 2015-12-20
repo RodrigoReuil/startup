@@ -5,10 +5,10 @@
 }
 
 #pageHeader {
-	height:100px;
 	position:relative;
 	background: #4EA9B5;
 	font-size: 46px;
+	margin-bottom: 1%;
 }
 
 /*******CONTAINER************/
@@ -16,25 +16,23 @@
 	float:left;
 	background: orange;
 	width: 22%;
-	height: 100%;
-	padding-bottom: 20px
+	padding-bottom: 20px;
 }
 
 #pageSection {
 	float:left;
 	background:  #64D28B;
 	width: 30%;
-	margin-left:1%;		/* separacion */
-	height: 100%;
-	padding-bottom: 20px
+	margin-left:1%;
+	padding-bottom: 20px;
 }
 
 #pageAside {
-	float:left;
+	float:right;
 	background: #ccc;
 	width: 37%;
 	margin-left:1%;
-	padding-bottom: 20px
+	padding-bottom: 20px;
 }
 
 /******END CONTAINER*********/

@@ -22,7 +22,7 @@
 			</header>
 
 			<nav id="pageNav" class="textPlace" ng-controller="RealmlCtrl">
-				<b>Realm's Status</b>
+				<span class="textAling"><b>Realm's Status</b></span>
 				<p></p>
 				<table>
 					<tr>
@@ -42,7 +42,7 @@
 				<p>Player Name: <input ng-model="playerName" type="text"/></p>
 				<button ng-click="getPlayer()">Show Info</button>
 				<p></p>
-				<!--<img src="... FALTA URL ... {{ player.thumbnail }}"/>-->
+				<img src="http://render-api-us.worldofwarcraft.com/static-render/us/{{ player.thumbnail }}"/>
 				<table>
 					<tr>
 						<td>Name:</td>
@@ -92,7 +92,7 @@
 						<td class='column2'>{{ guild.character.name }}</td>
 						<td class='column2'>{{ guildClass(guild.character.class) }}</td>
 						<td class='column2'>{{ guildRace(guild.character.race) }}</td>
-						<td class='column2'><!--<img src="... FALTA URL ... {{ guild.character.thumbnail }}"/>--></td>
+						<td class='column2'><img src="http://render-api-us.worldofwarcraft.com/static-render/us/{{ guild.character.thumbnail }}"/></td>
 					</tr>
 				</table>
 			</aside>
